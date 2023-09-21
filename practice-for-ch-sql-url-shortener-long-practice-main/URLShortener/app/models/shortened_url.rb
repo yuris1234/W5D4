@@ -30,7 +30,19 @@ class ShortenedUrl < ApplicationRecord
 
 
 
-        has_many :visited_users, through: :visits, source: :user
+    has_many :visited_users, Proc.new { distinct }, through: :visits, source: :user
+
+    def num_clicks
+        
+    end
+
+    def num_uniques
+        self.visited_users.select {|}
+    end
+
+    def num_recent_uniques
+        SELECT COUNT(*) FROM visits WHERE 10.minutes.ago
+    end
 
     private
 

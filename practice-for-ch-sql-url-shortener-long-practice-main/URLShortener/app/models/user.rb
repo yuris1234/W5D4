@@ -20,7 +20,7 @@ class User < ApplicationRecord
     has_many(
         :visits,
         primary_key: :id, 
-        foreign_key: :user_id
+        foreign_key: :user_id,
         class_name: :Visit
     )
 
