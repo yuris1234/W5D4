@@ -21,7 +21,15 @@ class Course < ApplicationRecord
         :prerequisite,
         class_name: :Course,
         foreign_key: :prereq_id,
-        primary_key: :id 
+        primary_key: :id,
+        optional: true
+    )
+
+    belongs_to(
+        :instructor,
+        class_name: :User,
+        primary_key: :id,
+        foreign_key: :instructor_id
     )
 
     has_many(
